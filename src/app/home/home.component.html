@@ -1,0 +1,15 @@
+<div class="container search-Bar">
+  <div class="search-Bar-Title">
+    <h1>Busca tu Pokemon</h1>
+  </div>
+  <div class="d-flex">
+    <input 
+    #searchInput class="form-control me-2" 
+    type="search" 
+    placeholder="Nombre Pokemon" 
+    aria-label="Search"
+    (keydown.enter)="search(searchInput.value)"
+    >
+    <button class="btn btn-outline-success" (click)="search(searchInput.value)">Buscar</button>
+  </div>
+</div>

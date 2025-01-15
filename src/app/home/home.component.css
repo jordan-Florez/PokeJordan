@@ -1,0 +1,18 @@
+.container {
+    display: grid;
+    justify-items: center;
+}
+
+.search-Bar {
+    margin-top: 20vh;
+}
+
+.search-Bar-Title {
+    margin-bottom: 3vh;
+}
+
+img {
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+}

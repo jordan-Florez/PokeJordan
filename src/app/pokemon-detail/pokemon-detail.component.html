@@ -1,0 +1,57 @@
+<div class="container">
+    @if (loading) {
+        <h4>Loading. . .</h4>
+    }
+    @if (!loading){
+        <div class="card" style="width: 25rem;">
+            <img src="{{pokemon?.sprites?.front_default}}" class="card-img-top" alt="{{pokemon?.name}}">
+            <div class="card-body">
+            <!-- Tipo del Pokémon -->
+            @for (type of pokemon?.types; track type.type.name){
+                <h5>{{type.type.name | titlecase }}</h5>
+            } @empty {
+                <h5>No Types available / Pokemon no disponible</h5>
+            }
+            <h4>{{pokemon?.name | titlecase}}</h4>
+            <div class="divider"></div>
+            <strong><h6>Stats : </h6></strong>
+            <ul>
+                @for(stat of pokemon?.stats; track stat.stat.name ){
+                    <li>
+                        <p>{{stat.stat.name }}: <strong>{{stat.base_stat}}</strong></p>
+                    </li>
+                }
+            </ul>
+            <div class="divider"></div>
+            <strong><h6>Habilidades : </h6></strong>
+            <p class="card-text">
+                @for (ability of pokemon?.abilities; track ability.ability.name){
+                    <p>{{ability.ability.name | titlecase }}</p>
+                }
+            </p>
+            <div class="divider"></div>
+            <p class="card-text">
+                <a href="https://pokemondb.net/pokemon/{{pokemon?.name}}" target="_blank">
+                    Ver más en PokémonDB
+                </a>
+                <br>
+                <a href="https://github.com/PokeAPI/pokeapi" target="_blank">
+                    Ver más sobre la API Pokémon
+                </a>
+                <br>
+                <a href="https://github.com/PokeAPI/pokeapi/blob/master/LICENSE" target="_blank">
+                    Licencia MIT
+                </a>
+                <br>
+                <a href="https://github.com/PokeAPI/pokeapi/wiki/Main-PokeAPI-Endpoint" target="_blank">
+                    API Pokémon
+                </a>
+                <br>
+                <a href="https://github.com/PokeAPI/pokeapi/wiki/Pagination" target="_blank">
+                    Paginación
+                </a>
+            </p>
+            </div>
+        </div>
+    }
+</div>
